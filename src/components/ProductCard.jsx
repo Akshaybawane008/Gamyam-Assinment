@@ -10,8 +10,8 @@ const ProductCard = memo(({ searchQuery, currentPage }) => {
     product.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // Pagination logic - show 8 products per page
-  const productsPerPage = 8; // CHANGED FROM 10 TO 8
+  // Pagination logic 
+  const productsPerPage = 8; 
   const startIndex = (currentPage - 1) * productsPerPage;
   const currentProducts = filteredProducts.slice(startIndex, startIndex + productsPerPage);
 
