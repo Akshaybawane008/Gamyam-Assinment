@@ -44,7 +44,7 @@ const ProductCard = memo(({ searchQuery, currentPage }) => {
                 relative
               "
             >
-              {/* Edit Button - Top Right */}
+             
               <button 
                 onClick={() => handleEditClick(product)}
                 className="absolute top-3 right-3 p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors duration-200"
@@ -54,12 +54,12 @@ const ProductCard = memo(({ searchQuery, currentPage }) => {
                 </svg>
               </button>
 
-              {/* Name */}
+         
               <h3 className="font-semibold text-lg sm:text-xl mb-1">
                 {product.name}
               </h3>
 
-              {/* Price & Category */}
+           
               <p className="text-gray-700 text-sm sm:text-base mb-1">
                 ₹{product.price}
               </p>
@@ -69,19 +69,18 @@ const ProductCard = memo(({ searchQuery, currentPage }) => {
                 <span className="font-medium">{product.category}</span>
               </p>
 
-              {/* Description */}
+             
               {product.description && (
                 <p className="text-gray-500 text-xs sm:text-sm mb-2">
                   {product.description}
                 </p>
               )}
 
-              {/* Stock */}
               <p className="text-gray-700 text-sm mb-1">
                 Stock: <span className="font-medium">{product.stock}</span>
               </p>
 
-              {/* Brand */}
+         
               {product.brand && (
                 <p className="text-gray-700 text-sm mb-1">
                   Brand:{" "}
@@ -89,7 +88,7 @@ const ProductCard = memo(({ searchQuery, currentPage }) => {
                 </p>
               )}
 
-              {/* Sizes */}
+   
               {product.sizes?.length > 0 && (
                 <p className="text-gray-700 text-sm mb-1">
                   Sizes:{" "}
@@ -99,7 +98,7 @@ const ProductCard = memo(({ searchQuery, currentPage }) => {
                 </p>
               )}
 
-              {/* Colors */}
+            
               {product.colors?.length > 0 && (
                 <p className="text-gray-700 text-sm mb-1">
                   Colors:{" "}
@@ -109,7 +108,7 @@ const ProductCard = memo(({ searchQuery, currentPage }) => {
                 </p>
               )}
 
-              {/* Collection */}
+          
               {product.collections && (
                 <p className="text-gray-700 text-sm mb-1">
                   Collection:{" "}
@@ -117,7 +116,7 @@ const ProductCard = memo(({ searchQuery, currentPage }) => {
                 </p>
               )}
 
-              {/* Material */}
+            
               {product.material && (
                 <p className="text-gray-700 text-sm mb-1">
                   Material:{" "}
@@ -125,7 +124,7 @@ const ProductCard = memo(({ searchQuery, currentPage }) => {
                 </p>
               )}
 
-              {/* Active Status */}
+      
               <p
                 className={`mt-3 font-semibold ${
                   product.isActive ? "text-green-600" : "text-red-600"
@@ -139,7 +138,7 @@ const ProductCard = memo(({ searchQuery, currentPage }) => {
         </div>
       </div>
 
-      {/* Edit Popup */}
+
       {editingProduct && (
         <ProductEdit 
           product={editingProduct} 

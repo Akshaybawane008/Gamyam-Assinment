@@ -2,7 +2,7 @@ import React from "react";
 import { ProductData } from "../data/ProductData.js";
 
 const Pagination = ({ currentPage, setCurrentPage, searchQuery }) => {
-  // Filter products based on search query
+ 
   const filteredProducts = ProductData.filter(product =>
     product.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -25,10 +25,10 @@ const Pagination = ({ currentPage, setCurrentPage, searchQuery }) => {
 
   return (
     <div className="flex justify-center items-center pb-6 sm:pb-10 px-4">
-      {/* Mobile Layout: Next → Content ← Previous */}
+    
       <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none">
         
-        {/* Next Button - Top on Mobile */}
+  
         <button
           onClick={handleNext}
           disabled={currentPage === totalPages}
@@ -52,7 +52,6 @@ const Pagination = ({ currentPage, setCurrentPage, searchQuery }) => {
           </svg>
         </button>
 
-        {/* Page Information - Middle on Mobile */}
         <div className="flex items-center space-x-2 sm:space-x-3 bg-white px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl border border-gray-200 shadow-sm w-full sm:w-auto justify-center order-2">
           <span className="text-xs sm:text-sm font-medium text-gray-600">Page</span>
           <span className="text-base sm:text-lg font-bold text-blue-600 min-w-4 sm:min-w-5 text-center">{currentPage}</span>
@@ -60,7 +59,7 @@ const Pagination = ({ currentPage, setCurrentPage, searchQuery }) => {
           <span className="text-base sm:text-lg font-bold text-gray-700 min-w-4 sm:min-w-5 text-center">{totalPages}</span>
         </div>
 
-        {/* Previous Button - Bottom on Mobile */}
+     
         <button
           onClick={handlePrevious}
           disabled={currentPage === 1}

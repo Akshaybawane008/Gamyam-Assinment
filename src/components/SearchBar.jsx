@@ -5,7 +5,6 @@ import ProductList from "./ProductList";
 import ProductCard from "./ProductCard"; 
 import ProductEdit from "./ProductEdit";
 
-// Memoize the components to prevent unnecessary re-renders
 const MemoizedProductList = React.memo(ProductList);
 const MemoizedProductCard = React.memo(ProductCard);
 
@@ -36,7 +35,7 @@ const SearchBar = ({ searchQuery, setSearchQuery, currentPage, setCurrentPage })
 
   return (
     <div>
-      {/* Main Navigation Section */}
+    
       <div className="px-4 sm:px-6 lg:px-12 py-6">
       
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
@@ -57,7 +56,7 @@ const SearchBar = ({ searchQuery, setSearchQuery, currentPage, setCurrentPage })
 
     
         <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4">
-          {/* Search Input */}
+         
           <div className="flex-1 w-full">
             <div className="relative">
               <input
@@ -77,7 +76,7 @@ const SearchBar = ({ searchQuery, setSearchQuery, currentPage, setCurrentPage })
 
         
           <div className="flex items-center justify-center gap-2 bg-white rounded-xl p-1 shadow-sm border border-gray-200 w-full sm:w-auto">
-            {/* Table View Button */}
+         
             <button 
               onClick={handleTableView}
               className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg transition-all duration-200 text-sm ${
@@ -90,10 +89,10 @@ const SearchBar = ({ searchQuery, setSearchQuery, currentPage, setCurrentPage })
               <span className="font-medium">Table</span>
             </button>
 
-            {/* Divider */}
+         
             <div className="h-4 sm:h-6 w-px bg-gray-300"></div>
 
-            {/* Card View Button */}
+         
             <button 
               onClick={handleCardView}
               className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg transition-all duration-200 text-sm ${
@@ -109,7 +108,6 @@ const SearchBar = ({ searchQuery, setSearchQuery, currentPage, setCurrentPage })
         </div>
       </div>
 
-      {/* Render the appropriate component based on active view */}
       {activeView === 'table' ? 
         <MemoizedProductList 
           searchQuery={searchQuery}
@@ -121,7 +119,6 @@ const SearchBar = ({ searchQuery, setSearchQuery, currentPage, setCurrentPage })
         />
       }
 
-      {/* Add Product Popup */}
       {showAddProduct && (
         <ProductEdit 
           product={null} 

@@ -27,7 +27,6 @@ const ProductEdit = ({ product, onClose, isAddMode = false }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically save the data to your backend
     console.log(isAddMode ? 'Adding product:' : 'Updating product:', formData);
     onClose();
   };
@@ -38,7 +37,7 @@ const ProductEdit = ({ product, onClose, isAddMode = false }) => {
       onClick={handleBackdropClick}
     >
       <div className="bg-white rounded-xl p-4 sm:p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-        {/* Header */}
+   
         <div className="flex justify-between items-center mb-4 sm:mb-6">
           <h2 className="text-xl sm:text-2xl font-bold text-gray-800">
             {isAddMode ? 'Add New Product' : 'Edit Product'}
@@ -51,7 +50,7 @@ const ProductEdit = ({ product, onClose, isAddMode = false }) => {
           </button>
         </div>
 
-        {/* Product Form */}
+      
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
@@ -136,7 +135,7 @@ const ProductEdit = ({ product, onClose, isAddMode = false }) => {
             <label className="ml-2 text-sm font-medium text-gray-700">Active Product</label>
           </div>
 
-          {/* Action Buttons */}
+       
           <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-3 pt-4">
             <button 
               type="button"

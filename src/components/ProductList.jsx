@@ -5,12 +5,12 @@ import ProductEdit from "./ProductEdit";
 const ProductList = memo(({ searchQuery, currentPage }) => {
   const [editingProduct, setEditingProduct] = useState(null);
 
-  // Filter products based on search query
+  // Filter product
   const filteredProducts = ProductData.filter(product =>
     product.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // Pagination logic
+  // Pagination
   const productsPerPage = 8; 
   const startIndex = (currentPage - 1) * productsPerPage;
   const currentProducts = filteredProducts.slice(startIndex, startIndex + productsPerPage);
@@ -90,7 +90,7 @@ const ProductList = memo(({ searchQuery, currentPage }) => {
         </table>
       </div>
 
-      {/* Edit Popup */}
+
       {editingProduct && (
         <ProductEdit 
           product={editingProduct} 
