@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { AiOutlineTable, AiOutlinePlus } from "react-icons/ai";
 import { BsGrid3X3Gap } from "react-icons/bs";
 import ProductList from "./ProductList";
@@ -11,6 +11,7 @@ const MemoizedProductCard = React.memo(ProductCard);
 const SearchBar = ({ searchQuery, setSearchQuery, currentPage, setCurrentPage }) => {
   const [activeView, setActiveView] = useState('table'); 
   const [showAddProduct, setShowAddProduct] = useState(false);
+  const debounceRef = useRef(null);
 
   const handleTableView = useCallback(() => {
     setActiveView('table');
@@ -21,8 +22,17 @@ const SearchBar = ({ searchQuery, setSearchQuery, currentPage, setCurrentPage })
   }, []);
 
   const handleSearchChange = useCallback((e) => {
-    setSearchQuery(e.target.value);
-    setCurrentPage(1); 
+    const value = e.target.value;
+    
+    if (debounceRef.current) {
+      clearTimeout(debounceRef.current);
+    }
+    
+    debounceRef.current = setTimeout(() => {
+      setSearchQuery(value);
+      setCurrentPage(1);
+    }, 500);
+    
   }, [setSearchQuery, setCurrentPage]);
 
   const handleAddProduct = useCallback(() => {
@@ -62,7 +72,7 @@ const SearchBar = ({ searchQuery, setSearchQuery, currentPage, setCurrentPage })
               <input
                 type="text"
                 placeholder="Search products..."
-                value={searchQuery}
+                defaultValue={searchQuery}
                 onChange={handleSearchChange}
                 className="w-full border border-gray-300 rounded-xl px-4 sm:px-6 py-2 sm:py-3 pl-10 sm:pl-12 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm transition-all duration-300 text-sm sm:text-base"
               />
